@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/hola/{name}', HolaController::class);
+Route::get('/hola2/{name}', );
