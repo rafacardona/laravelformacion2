@@ -10,4 +10,12 @@ class HolaController extends Controller{
     {
         return "Hola {$name}!";
     }
+
+    /*
+     * En este metodo devolvera una vista llamada hola2, y los parametros que recibe la vista se le pasan con la funcion
+     * compact.
+     */
+    public function index(string $namee){
+        return view("hola2", compact("namee"));
+    }
 }
