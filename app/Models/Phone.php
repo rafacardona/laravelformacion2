@@ -16,6 +16,7 @@ class Phone extends Model
 
     //le indicamos cual es su user
     public function user() : BelongsTo{
+
         return $this->belongsTo(User::class);
     }
 }
