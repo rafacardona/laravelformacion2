@@ -18,6 +18,7 @@ RUN apk add git vim libxml2-dev &&\
              zip \
     && apk --no-cache add \
         postgresql-dev\
+        postgresql-client \
     && docker-php-ext-install zip \
     && apk add --no-cache libpng libpng-dev \
     && docker-php-ext-install gd \
