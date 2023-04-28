@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendContactForm;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class ContactController extends Controller
@@ -29,6 +32,17 @@ class ContactController extends Controller
         ]);
         //de esta manera se puede ver lo que trae la request
         //dd($request->input());
+
+        /*
+         * Aqui vamos a enviar el mail a un usuario con la fachada MAIL y el metodo to.
+         * Lo vamos a enviar al primer usuario que encuentre en la base de datos.
+         */
+        Mail::to(User::first())->send(
+            new SendContactForm(
+                $request->input("subject"),
+                $request->input("message"),
+            )
+        );
     }
 
 }

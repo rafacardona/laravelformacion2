@@ -14,13 +14,14 @@
                         <!-- DIRECTICA BLADE para incluir token al form, evita que nos hagan peticiones externas. Añade una capa de seguridad-->
                         @csrf
                         <div class="block mt-4">
-                            <x-form-input name="subject" label="Escribe el motivo de tu mensaje" />
+                            <x-form-input name="subject" label="Escribe el motivo de tu mensaje"/>
                         </div>
                         <div class="block mt-4">
-                            <x-form-textarea name="message" label="Escribe tu mensaje aqui" />
+                            <x-form-textarea name="message" label="Escribe tu mensaje aqui"/>
                         </div>
                         <div class="flex items-center justify-end mt-4">
-                            <x-form-submit/>Enviar Mensaje</x-form-submit>
+                            <x-form-submit>
+                            Enviar Mensaje</x-form-submit>
                         </div>
                     </form>
                 </div>
