@@ -25,6 +25,12 @@ Route::group(["middleware" => ['auth', 'verified']], function (){
 
     Route::get('/contact',[\App\Http\Controllers\ContactController::class, "index"])->name("contact.index");
     Route::post('/contact',[\App\Http\Controllers\ContactController::class, "send"])->name("contact.send");
+
+    //Ruta para comprobar contenido del mail
+    Route::get('/mailable/contact', function (){
+       //devolvemos instancia clase mailable con el subject y el message
+       return new \App\Mail\SendContactForm("Motivo de tu mensaje", "Mensaje");
+    });
 });
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

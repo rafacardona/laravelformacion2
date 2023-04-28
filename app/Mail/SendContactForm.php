@@ -14,40 +14,34 @@ class SendContactForm extends Mailable
     use Queueable, SerializesModels;
 
     /**
+     * @var string
+     */
+    public string $textSubject;
+    /**
+     * @var string
+     */
+    public string $textMessage;
+
+
+    /**
      * Create a new message instance.
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'Send Contact Form',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * Los datos de entrada para enviar el mail, se pasan por el constructor
      */
-    public function attachments(): array
+    public function __construct(string $subject, string $message)
     {
-        return [];
+        $this->textMessage = $message;
+        $this->textSubject = $subject;
+    }
+
+    /**
+     * @return SendContactForm
+     */
+    public function build(): SendContactForm
+    {
+
+        return $this
+            ->subject("Formulario de contacnto -" . config("app.name"))
+            ->markdown("emails.contact");
     }
 }
