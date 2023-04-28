@@ -19,14 +19,12 @@
                         <div class="block mt-4">
                             <x-form-textarea name="message" label="Escribe tu mensaje aqui" />
                         </div>
-                        <div class="flex items-center justify-end mt-4>
-                            <x-form-submit>Enviar Mensaje</x-form-submit>
+                        <div class="flex items-center justify-end mt-4">
+                            <x-form-submit/>Enviar Mensaje</x-form-submit>
                         </div>
-
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 </x-app-layout>
