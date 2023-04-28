@@ -29,6 +29,8 @@
 
             <!-- Page Content -->
             <main>
+                <!-- utilizamos componente flash que es el que hemos creado para las alertas -->
+                <x-flash-messages/>
                 {{ $slot }}
             </main>
         </div>
